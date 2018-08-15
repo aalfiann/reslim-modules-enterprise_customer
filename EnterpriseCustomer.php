@@ -3,6 +3,7 @@
 namespace modules\enterprise_customer;              //Make sure namespace is same structure with parent directory
 
 use \classes\Auth as Auth;                          //For authentication internal user
+use \classes\JSON as JSON;                          //For handling JSON in better way
 use \classes\CustomHandlers as CustomHandlers;      //To get default response message
 use PDO;                                            //To connect with database
 

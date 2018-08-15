@@ -18,3 +18,25 @@ use \classes\middleware\ApiKey as ApiKey;                                   //Ap
         $body->write($ec->viewInfo());
         return classes\Cors::modify($response,$body,200,$request);
     })->add(new ApiKey);
+
+    // Installation 
+    $app->get('/enterprise_customer/install/{username}/{token}', function (Request $request, Response $response) {
+        $ec = new EnterpriseCustomer($this->db);
+        $ec->lang = (empty($_GET['lang'])?$this->settings['language']:$_GET['lang']);
+        $ec->username = $request->getAttribute('username');
+        $ec->token = $request->getAttribute('token');
+        $body = $response->getBody();
+        $body->write($ec->install());
+        return classes\Cors::modify($response,$body,200);
+    });
+
+    // Uninstall (This will clear all data) 
+    $app->get('/enterprise_customer/uninstall/{username}/{token}', function (Request $request, Response $response) {
+        $ec = new EnterpriseCustomer($this->db);
+        $ec->lang = (empty($_GET['lang'])?$this->settings['language']:$_GET['lang']);
+        $ec->username = $request->getAttribute('username');
+        $ec->token = $request->getAttribute('token');
+        $body = $response->getBody();
+        $body->write($ec->uninstall());
+        return classes\Cors::modify($response,$body,200);
+    });
