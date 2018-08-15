@@ -1,0 +1,905 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Enterprise Customer",
+		"_postman_id": "bf0d8bc6-c76f-f40a-1388-f2442a971b89",
+		"description": "API Dcoumentation about Enterprise Customer Module.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get Info Module",
+			"request": {
+				"url": {
+					"raw": "http://localhost:1337/reSlim/src/api/enterprise_customer/get/info/?apikey={yourapikey}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1337",
+					"path": [
+						"reSlim",
+						"src",
+						"api",
+						"enterprise_customer",
+						"get",
+						"info",
+						""
+					],
+					"query": [
+						{
+							"key": "apikey",
+							"value": "{yourapikey}",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "Get Info Module\n---\nGet info detail about Enterprise Module."
+			},
+			"response": []
+		},
+		{
+			"name": "Install Enterprise Customer Database",
+			"request": {
+				"url": "http://localhost:1337/reSlim/src/api/enterprise_customer/install/{yourusername}/{yourtoken}",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "Install Enterprise Customer Database\n---\nThis will install Enterprise Customer Database.\n\nNote:\n- Only user with role Superuser who can install.\n- Your exist database will be replaced if you ever install this before."
+			},
+			"response": []
+		},
+		{
+			"name": "Uninstall Enterprise Customer Database",
+			"request": {
+				"url": "http://localhost:1337/reSlim/src/api/enterprise_customer/uninstall/{yourusername}/{yourtoken}",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "Uninstall Enterprise Customer Database\n---\nThis will remove Enterprise Customer Database.\n\nNote:\n- Only user with role Superuser who can uninstall.\n- Your exist enterprise customer database will be removed clean."
+			},
+			"response": []
+		},
+		{
+			"name": "Show Option Status",
+			"request": {
+				"url": "http://localhost:1337/reSlim/src/api/enterprise_customer/option/data/status/{yourtoken}",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "Show Option Status\n---\nTo get data list option status to be use for manage the data customer with type company or member."
+			},
+			"response": []
+		},
+		{
+			"name": "Company Add New",
+			"request": {
+				"url": "http://localhost:1337/reSlim/src/api/enterprise_customer/company/data/new",
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "Username",
+							"value": "{yourusername}",
+							"description": "Length is 1-50 {alphanumeric,lowercase,required}",
+							"type": "text"
+						},
+						{
+							"key": "Token",
+							"value": "{yourtoken}",
+							"description": "Length is 1-250 {required}",
+							"type": "text"
+						},
+						{
+							"key": "Name",
+							"value": "",
+							"description": "Length is 1-50 {required}",
+							"type": "text"
+						},
+						{
+							"key": "Alias",
+							"value": "",
+							"description": "Length is 0-50",
+							"type": "text"
+						},
+						{
+							"key": "Address",
+							"value": "",
+							"description": "Length is 1-250 {required}",
+							"type": "text"
+						},
+						{
+							"key": "Phone",
+							"value": "",
+							"description": "Length is 1-15 {numeric,required}",
+							"type": "text"
+						},
+						{
+							"key": "Fax",
+							"value": "",
+							"description": "Length is 0-15 {numeric}",
+							"type": "text"
+						},
+						{
+							"key": "Email",
+							"value": "",
+							"description": "Length is 0-50 {email}",
+							"type": "text"
+						},
+						{
+							"key": "PIC",
+							"value": "",
+							"description": "Length is 0-50",
+							"type": "text"
+						},
+						{
+							"key": "TIN",
+							"value": "",
+							"description": "Length is 0-50",
+							"type": "text"
+						},
+						{
+							"key": "Discount",
+							"value": "0",
+							"description": "Length is 1-7 {decimal,required}",
+							"type": "text"
+						},
+						{
+							"key": "Tax",
+							"value": "0",
+							"description": "Length is 1-7 {decimal,required}",
+							"type": "text"
+						},
+						{
+							"key": "Admin_cost",
+							"value": "0",
+							"description": "Length is 1-10 {decimal,required}",
+							"type": "text"
+						},
+						{
+							"key": "IndustryID",
+							"value": "1",
+							"description": "Length is 1-11 {numeric,required}",
+							"type": "text"
+						},
+						{
+							"key": "SalesID",
+							"value": "",
+							"description": "Length is 0-20 {alphanumeric}",
+							"type": "text"
+						}
+					]
+				},
+				"description": "Company Add New\n---\nThis is to Add new data Customer with type Company.\n\nNote:\n- User with role Superuser, Admin, Master and Standart can add new data customer company."
+			},
+			"response": []
+		},
+		{
+			"name": "Company Data Update",
+			"request": {
+				"url": "http://localhost:1337/reSlim/src/api/enterprise_customer/company/data/update",
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "Username",
+							"value": "{yourusername}",
+							"description": "Length is 1-50 {alphanumeric,lowercase,required}",
+							"type": "text"
+						},
+						{
+							"key": "Token",
+							"value": "{yourtoken}",
+							"description": "Length is 1-250 {required}",
+							"type": "text"
+						},
+						{
+							"key": "Name",
+							"value": "",
+							"description": "Length is 1-50 {required}",
+							"type": "text"
+						},
+						{
+							"key": "Alias",
+							"value": "",
+							"description": "Length is 0-50",
+							"type": "text"
+						},
+						{
+							"key": "Address",
+							"value": "",
+							"description": "Length is 1-250 {required}",
+							"type": "text"
+						},
+						{
+							"key": "Phone",
+							"value": "",
+							"description": "Length is 1-15 {numeric,required}",
+							"type": "text"
+						},
+						{
+							"key": "Fax",
+							"value": "",
+							"description": "Length is 0-15 {numeric}",
+							"type": "text"
+						},
+						{
+							"key": "Email",
+							"value": "",
+							"description": "Length is 0-50 {email}",
+							"type": "text"
+						},
+						{
+							"key": "PIC",
+							"value": "",
+							"description": "Length is 0-50",
+							"type": "text"
+						},
+						{
+							"key": "TIN",
+							"value": "",
+							"description": "Length is 0-50",
+							"type": "text"
+						},
+						{
+							"key": "Discount",
+							"value": "0",
+							"description": "Length is 1-7 {decimal,required}",
+							"type": "text"
+						},
+						{
+							"key": "Tax",
+							"value": "0",
+							"description": "Length is 1-7 {decimal,required}",
+							"type": "text"
+						},
+						{
+							"key": "Admin_cost",
+							"value": "0",
+							"description": "Length is 1-10 {decimal,required}",
+							"type": "text"
+						},
+						{
+							"key": "IndustryID",
+							"value": "1",
+							"description": "Length is 1-11 {numeric,required}",
+							"type": "text"
+						},
+						{
+							"key": "SalesID",
+							"value": "",
+							"description": "Length is 0-20 {alphanumeric}",
+							"type": "text"
+						},
+						{
+							"key": "StatusID",
+							"value": "{1 or 42}",
+							"description": "Length is 1-11 {numeric,required}",
+							"type": "text"
+						},
+						{
+							"key": "CompanyID",
+							"value": "{companyid}",
+							"description": "Length is 1-20 {alphanumeric,required}",
+							"type": "text"
+						}
+					]
+				},
+				"description": "Company Data Update\n---\nThis is to update data Customer with type Company.\n\nNote:\n- User with role Superuser, Admin, Master and Standart can update the data customer company."
+			},
+			"response": []
+		},
+		{
+			"name": "Company Data Delete",
+			"request": {
+				"url": "http://localhost:1337/reSlim/src/api/enterprise_customer/company/data/delete",
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "Username",
+							"value": "{yourusername}",
+							"description": "Length is 1-50 {alphanumeric,lowercase,required}",
+							"type": "text"
+						},
+						{
+							"key": "Token",
+							"value": "{yourtoken}",
+							"description": "Length is 1-250 {required}",
+							"type": "text"
+						},
+						{
+							"key": "CompanyID",
+							"value": "{companyid}",
+							"description": "Length is 1-20 {alphanumeric,required}",
+							"type": "text"
+						}
+					]
+				},
+				"description": "Company Data Delete\n---\nThis is to Delete the data Customer with type Company.\n\nNote:\n- Only user with role Superuser can delete the data customer company."
+			},
+			"response": []
+		},
+		{
+			"name": "Show Company Data Detail",
+			"request": {
+				"url": "http://localhost:1337/reSlim/src/api/enterprise_customer/company/data/detail/{yourusername}/{yourtoken}/{companyid}",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "Show Member Data Detail\n---\nThis will show the data detail of Customer with type Member."
+			},
+			"response": []
+		},
+		{
+			"name": "Search Company Data Paginated",
+			"request": {
+				"url": {
+					"raw": "http://localhost:1337/reSlim/src/api/enterprise_customer/company/data/search/{yourusername}/{yourtoken}/{page}/{itemsperpage}/?lang=en&query={query to search data}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1337",
+					"path": [
+						"reSlim",
+						"src",
+						"api",
+						"enterprise_customer",
+						"company",
+						"data",
+						"search",
+						"{yourusername}",
+						"{yourtoken}",
+						"{page}",
+						"{itemsperpage}",
+						""
+					],
+					"query": [
+						{
+							"key": "lang",
+							"value": "en",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "query",
+							"value": "{query to search data}",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "Search Company Data As Pagination\n---\nThis will show all data customer company with pagination.\n\nNote:\n- All role can see this data customer company."
+			},
+			"response": []
+		},
+		{
+			"name": "Member Add New",
+			"request": {
+				"url": "http://localhost:1337/reSlim/src/api/enterprise_customer/member/data/new",
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "Username",
+							"value": "{yourusername}",
+							"description": "Length is 1-50 {alphanumeric,lowercase,required}",
+							"type": "text"
+						},
+						{
+							"key": "Token",
+							"value": "{yourtoken}",
+							"description": "Length is 1-250 {required}",
+							"type": "text"
+						},
+						{
+							"key": "Name",
+							"value": "",
+							"description": "Length is 1-50 {required}",
+							"type": "text"
+						},
+						{
+							"key": "Alias",
+							"value": "",
+							"description": "Length is 0-50",
+							"type": "text"
+						},
+						{
+							"key": "Address",
+							"value": "",
+							"description": "Length is 1-250 {required}",
+							"type": "text"
+						},
+						{
+							"key": "Phone",
+							"value": "",
+							"description": "Length is 1-15 {numeric,required}",
+							"type": "text"
+						},
+						{
+							"key": "Fax",
+							"value": "",
+							"description": "Length is 0-15 {numeric}",
+							"type": "text"
+						},
+						{
+							"key": "Email",
+							"value": "",
+							"description": "Length is 0-50 {email}",
+							"type": "text"
+						},
+						{
+							"key": "Discount",
+							"value": "0",
+							"description": "Length is 1-7 {decimal,required}",
+							"type": "text"
+						},
+						{
+							"key": "Admin_cost",
+							"value": "0",
+							"description": "Length is 1-10 {decimal,required}",
+							"type": "text"
+						}
+					]
+				},
+				"description": "Member Add New\n---\nThis is to Add new data Customer with type Member.\n\nNote:\n- User with role Superuser, Admin, Master and Standart can add new data customer member."
+			},
+			"response": []
+		},
+		{
+			"name": "Member Data Update",
+			"request": {
+				"url": "http://localhost:1337/reSlim/src/api/enterprise_customer/member/data/update",
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "Username",
+							"value": "{yourusername}",
+							"description": "Length is 1-50 {alphanumeric,lowercase,required}",
+							"type": "text"
+						},
+						{
+							"key": "Token",
+							"value": "{yourtoken}",
+							"description": "Length is 1-250 {required}",
+							"type": "text"
+						},
+						{
+							"key": "Name",
+							"value": "",
+							"description": "Length is 1-50 {required}",
+							"type": "text"
+						},
+						{
+							"key": "Alias",
+							"value": "",
+							"description": "Length is 0-50",
+							"type": "text"
+						},
+						{
+							"key": "Address",
+							"value": "",
+							"description": "Length is 1-250 {required}",
+							"type": "text"
+						},
+						{
+							"key": "Phone",
+							"value": "",
+							"description": "Length is 1-15 {numeric,required}",
+							"type": "text"
+						},
+						{
+							"key": "Fax",
+							"value": "",
+							"description": "Length is 0-50 {numeric}",
+							"type": "text"
+						},
+						{
+							"key": "Email",
+							"value": "",
+							"description": "Length is 0-50 {email}",
+							"type": "text"
+						},
+						{
+							"key": "Discount",
+							"value": "0",
+							"description": "Length is 1-7 {decimal,required}",
+							"type": "text"
+						},
+						{
+							"key": "Admin_cost",
+							"value": "0",
+							"description": "Length is 1-10 {decimal,required}",
+							"type": "text"
+						},
+						{
+							"key": "StatusID",
+							"value": "1",
+							"description": "Length is 1-11 {numeric,required}",
+							"type": "text"
+						},
+						{
+							"key": "MemberID",
+							"value": "{memberid}",
+							"description": "Length is 1-20 {alphanumeric,required}",
+							"type": "text"
+						}
+					]
+				},
+				"description": "Member Data Update\n---\nThis is to update data Customer with type Member.\n\nNote:\n- User with role Superuser, Admin, Master and Standart can update the data customer member."
+			},
+			"response": []
+		},
+		{
+			"name": "Member Data Delete",
+			"request": {
+				"url": "http://localhost:1337/reSlim/src/api/enterprise_customer/member/data/delete",
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "Username",
+							"value": "{yourusername}",
+							"description": "Length is 1-50 {alphanumeric,lowercase,required}",
+							"type": "text"
+						},
+						{
+							"key": "Token",
+							"value": "{yourtoken}",
+							"description": "Length is 1-250 {required}",
+							"type": "text"
+						},
+						{
+							"key": "MemberID",
+							"value": "{memberid}",
+							"description": "Length is 1-20 {alphanumeric,required}",
+							"type": "text"
+						}
+					]
+				},
+				"description": "Member Data Delete\n---\nThis is to Delete the data Customer with type Member.\n\nNote:\n- Only user with role Superuser can delete the data customer member."
+			},
+			"response": []
+		},
+		{
+			"name": "Show Member Data Detail",
+			"request": {
+				"url": "http://localhost:1337/reSlim/src/api/enterprise_customer/member/data/detail/{yourusername}/{yourtoken}/{memberid}",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "Show Member Data Detail\n---\nThis will show the data detail of Customer with type Member."
+			},
+			"response": []
+		},
+		{
+			"name": "Search Member Data Paginated",
+			"request": {
+				"url": {
+					"raw": "http://localhost:1337/reSlim/src/api/enterprise_customer/member/data/search/{yourusername}/{yourtoken}/{page}/{itemsperpage}/?lang=en&query={query to search data}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1337",
+					"path": [
+						"reSlim",
+						"src",
+						"api",
+						"enterprise_customer",
+						"member",
+						"data",
+						"search",
+						"{yourusername}",
+						"{yourtoken}",
+						"{page}",
+						"{itemsperpage}",
+						""
+					],
+					"query": [
+						{
+							"key": "lang",
+							"value": "en",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "query",
+							"value": "{query to search data}",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "Search Member Data As Pagination\n---\nThis will show all data customer member with pagination.\n\nNote:\n- All role can see this data customer member."
+			},
+			"response": []
+		},
+		{
+			"name": "Industry Add New",
+			"request": {
+				"url": "http://localhost:1337/reSlim/src/api/enterprise_customer/industry/data/new",
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "Username",
+							"value": "{yourusername}",
+							"description": "Length is 1-50 {alphanumeric,lowercase,required}",
+							"type": "text"
+						},
+						{
+							"key": "Token",
+							"value": "{yourtoken}",
+							"description": "Length is 1-250 {required}",
+							"type": "text"
+						},
+						{
+							"key": "Industry",
+							"value": "",
+							"description": "Length is 1-50 {required}",
+							"type": "text"
+						}
+					]
+				},
+				"description": "Industry Add New\n---\nThis is to Add new master data of Industry.\n\nNote:\n- Only user with role Superuser and Admin can add new data industry."
+			},
+			"response": []
+		},
+		{
+			"name": "Industry Data Update",
+			"request": {
+				"url": "http://localhost:1337/reSlim/src/api/enterprise_customer/industry/data/update",
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "Username",
+							"value": "{yourusername}",
+							"description": "Length is 1-50 {alphanumeric,lowercase,required}",
+							"type": "text"
+						},
+						{
+							"key": "Token",
+							"value": "{yourtoken}",
+							"description": "Length is 1-250 {required}",
+							"type": "text"
+						},
+						{
+							"key": "Industry",
+							"value": "",
+							"description": "Length is 1-50 {required}",
+							"type": "text"
+						},
+						{
+							"key": "IndustryID",
+							"value": "{industryid}",
+							"description": "Length is 1-11 {numeric,required}",
+							"type": "text"
+						}
+					]
+				},
+				"description": "Industry Data Update\n---\nThis is to update the master data of Industry.\n\nNote:\n- Only user with role Superuser and Admin can update data industry."
+			},
+			"response": []
+		},
+		{
+			"name": "Industry Data Delete",
+			"request": {
+				"url": "http://localhost:1337/reSlim/src/api/enterprise_customer/industry/data/delete",
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "Username",
+							"value": "{yourusername}",
+							"description": "Length is 1-50 {alphanumeric,lowercase,required}",
+							"type": "text"
+						},
+						{
+							"key": "Token",
+							"value": "{yourtoken}",
+							"description": "Length is 1-250 {required}",
+							"type": "text"
+						},
+						{
+							"key": "IndustryID",
+							"value": "{industryid}",
+							"description": "Length is 1-11 {numeric,required}",
+							"type": "text"
+						}
+					]
+				},
+				"description": "Industry Data Delete\n---\nThis is to delete the master data of Industry.\n\nNote:\n- Only user with role Superuser can delete the data industry."
+			},
+			"response": []
+		},
+		{
+			"name": "Search Data Industry Paginated",
+			"request": {
+				"url": {
+					"raw": "http://localhost:1337/reSlim/src/api/enterprise_customer/industry/data/search/{yourusername}/{yourtoken}/{page}/{itemsperpage}/?lang=en&query={query to search data}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1337",
+					"path": [
+						"reSlim",
+						"src",
+						"api",
+						"enterprise_customer",
+						"industry",
+						"data",
+						"search",
+						"{yourusername}",
+						"{yourtoken}",
+						"{page}",
+						"{itemsperpage}",
+						""
+					],
+					"query": [
+						{
+							"key": "lang",
+							"value": "en",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "query",
+							"value": "{query to search data}",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "Search Data Industry Paginated\n---\nThis will show all data industry with pagination.\n\nNote:\n- All role can see this data industry."
+			},
+			"response": []
+		},
+		{
+			"name": "Search Data Industry Paginated Public",
+			"request": {
+				"url": {
+					"raw": "http://localhost:1337/reSlim/src/api/enterprise_customer/industry/data/public/search/{page}/{itemsperpage}/?lang=en&apikey={yourapikey}&query={query to search data}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1337",
+					"path": [
+						"reSlim",
+						"src",
+						"api",
+						"enterprise_customer",
+						"industry",
+						"data",
+						"public",
+						"search",
+						"{page}",
+						"{itemsperpage}",
+						""
+					],
+					"query": [
+						{
+							"key": "lang",
+							"value": "en",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "apikey",
+							"value": "{yourapikey}",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "query",
+							"value": "{query to search data}",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "Search Data Industry Paginated Public\n---\nThis will show all data industry with pagination for public access with api key."
+			},
+			"response": []
+		},
+		{
+			"name": "Industry Data List",
+			"request": {
+				"url": "http://localhost:1337/reSlim/src/api/enterprise_customer/industry/data/list/{yourusername}/{yourtoken}",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "Industry Data List\n---\nThis will show all list data industry."
+			},
+			"response": []
+		},
+		{
+			"name": "Industry Data List Public",
+			"request": {
+				"url": {
+					"raw": "http://localhost:1337/reSlim/src/api/enterprise_customer/industry/data/list/public/?lang=en&apikey={yourapikey}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1337",
+					"path": [
+						"reSlim",
+						"src",
+						"api",
+						"enterprise_customer",
+						"industry",
+						"data",
+						"list",
+						"public",
+						""
+					],
+					"query": [
+						{
+							"key": "lang",
+							"value": "en",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "apikey",
+							"value": "{yourapikey}",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "Industry Data List Public\n---\nThis will show all list data industry for public access with api key."
+			},
+			"response": []
+		}
+	]
+}
