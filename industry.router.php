@@ -80,7 +80,7 @@ use \modules\enterprise_customer\Industry as Industry;
         if (SimpleCache::isCached(3600,["apikey","query","lang"])){
             $datajson = SimpleCache::load(["apikey","query","lang"]);
         } else {
-            $datajson = SimpleCache::save($i->searchIndustryAsPaginationPublic(),["apikey","query","lang"]);
+            $datajson = SimpleCache::save($i->searchIndustryAsPaginationPublic(),["apikey","query","lang"],null,3600);
         }
         $body->write($datajson);
         return classes\Cors::modify($response,$body,200,$request);
@@ -108,7 +108,7 @@ use \modules\enterprise_customer\Industry as Industry;
         if (SimpleCache::isCached(3600,["apikey","lang"])){
             $datajson = SimpleCache::load(["apikey","lang"]);
         } else {
-            $datajson = SimpleCache::save($i->showOptionIndustryPublic(),["apikey","lang"]);
+            $datajson = SimpleCache::save($i->showOptionIndustryPublic(),["apikey","lang"],null,3600);
         }
         $body->write($datajson);
         return classes\Cors::modify($response,$body,200,$request);
