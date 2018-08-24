@@ -284,7 +284,7 @@ use PDO;
 		 */
 		public function showCompanyDetail(){
 			if (Auth::validToken($this->db,$this->token,$this->username)){
-				$sql = "SELECT a.BranchID,a.Company_name,a.Company_name_alias,a.Address,a.Phone,a.Fax,a.Email,a.PIC,a.TIN,a.Discount,a.Tax,a.Admin_cost,
+				$sql = "SELECT a.BranchID,a.CompanyID,a.Company_name,a.Company_name_alias,a.Address,a.Phone,a.Fax,a.Email,a.PIC,a.TIN,a.Discount,a.Tax,a.Admin_cost,
                         a.IndustryID,b.Industry,a.SalesID,a.StatusID,c.`Status`,a.Created_at,a.Created_by,a.Updated_at,a.Updated_by
                     FROM customer_company a 
                     INNER JOIN customer_mas_industry b ON a.IndustryID = b.IndustryID
@@ -368,7 +368,7 @@ use PDO;
 						$offsets = (($newitemsperpage <= 0)?0:$newitemsperpage);
 
 						// Query Data
-						$sql = "SELECT a.BranchID,a.Company_name,a.Company_name_alias,a.Address,a.Phone,a.Fax,a.Email,a.PIC,a.TIN,a.Discount,a.Tax,a.Admin_cost,
+						$sql = "SELECT a.BranchID,a.CompanyID,a.Company_name,a.Company_name_alias,a.Address,a.Phone,a.Fax,a.Email,a.PIC,a.TIN,a.Discount,a.Tax,a.Admin_cost,
                                 a.IndustryID,b.Industry,a.SalesID,a.StatusID,c.`Status`,a.Created_at,a.Created_by,a.Updated_at,a.Updated_by
                             FROM customer_company a 
                             INNER JOIN customer_mas_industry b ON a.IndustryID = b.IndustryID

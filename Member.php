@@ -274,7 +274,7 @@ use PDO;
 		 */
 		public function showMemberDetail(){
 			if (Auth::validToken($this->db,$this->token,$this->username)){
-				$sql = "SELECT a.BranchID,a.Member_name,a.Member_name_alias,a.Address,a.Phone,a.Fax,a.Email,a.Discount,a.Admin_cost,
+				$sql = "SELECT a.BranchID,a.MemberID,a.Member_name,a.Member_name_alias,a.Address,a.Phone,a.Fax,a.Email,a.Discount,a.Admin_cost,
                         a.StatusID,b.`Status`,a.Created_at,a.Created_by,a.Updated_at,a.Updated_by
                     FROM customer_member a 
                     INNER JOIN core_status b ON a.StatusID = b.StatusID
