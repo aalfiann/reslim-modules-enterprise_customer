@@ -70,16 +70,16 @@ use \modules\enterprise_customer\Industry as Industry;
 
     // GET api to show all data industry pagination public
     $app->map(['GET','OPTIONS'],'/enterprise_customer/industry/data/public/search/{page}/{itemsperpage}/', function (Request $request, Response $response) {
-        $i = new Industry($this->db);
-        $i->lang = (empty($_GET['lang'])?$this->settings['language']:$_GET['lang']);
-        $i->search = filter_var((empty($_GET['query'])?'':$_GET['query']),FILTER_SANITIZE_STRING);
-        $i->page = $request->getAttribute('page');
-        $i->itemsPerPage = $request->getAttribute('itemsperpage');
         $body = $response->getBody();
         $response = $this->cache->withEtag($response, $this->etag2hour.'-'.trim($_SERVER['REQUEST_URI'],'/'));
         if (SimpleCache::isCached(3600,["apikey","query","lang"])){
             $datajson = SimpleCache::load(["apikey","query","lang"]);
         } else {
+            $i = new Industry($this->db);
+            $i->lang = (empty($_GET['lang'])?$this->settings['language']:$_GET['lang']);
+            $i->search = filter_var((empty($_GET['query'])?'':$_GET['query']),FILTER_SANITIZE_STRING);
+            $i->page = $request->getAttribute('page');
+            $i->itemsPerPage = $request->getAttribute('itemsperpage');
             $datajson = SimpleCache::save($i->searchIndustryAsPaginationPublic(),["apikey","query","lang"],null,3600);
         }
         $body->write($datajson);
@@ -101,13 +101,13 @@ use \modules\enterprise_customer\Industry as Industry;
 
     // GET api to show all data industry public
     $app->map(['GET','OPTIONS'],'/enterprise_customer/industry/data/list/public/', function (Request $request, Response $response) {
-        $i = new Industry($this->db);
-        $i->lang = (empty($_GET['lang'])?$this->settings['language']:$_GET['lang']);
         $body = $response->getBody();
         $response = $this->cache->withEtag($response, $this->etag2hour.'-'.trim($_SERVER['REQUEST_URI'],'/'));
         if (SimpleCache::isCached(3600,["apikey","lang"])){
             $datajson = SimpleCache::load(["apikey","lang"]);
         } else {
+            $i = new Industry($this->db);
+            $i->lang = (empty($_GET['lang'])?$this->settings['language']:$_GET['lang']);
             $datajson = SimpleCache::save($i->showOptionIndustryPublic(),["apikey","lang"],null,3600);
         }
         $body->write($datajson);
